@@ -24,7 +24,7 @@ def parse_arguments():
     parser.add_argument(
         "-exp_name_base",
         type=str,
-        default="smnist_exploration",
+        default="braille_exploration",
         help="Name for the starting experiment.",
     )
     parser.add_argument(
@@ -48,7 +48,7 @@ def parse_arguments():
     parser.add_argument(
         "-gpu_index",
         type=int,
-        default=0,
+        default=2,
         help="GPU index to be used for the experiment.",
     )
     parser.add_argument(
@@ -78,7 +78,7 @@ def parse_arguments():
     parser.add_argument(
         "-dataset_path",
         type=str,
-        default="../data/smnist_splitted",
+        default="../data/braille_splitted",
         help="Path to the dataset.",
     )
 

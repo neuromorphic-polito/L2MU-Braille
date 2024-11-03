@@ -49,7 +49,7 @@ def configure_trainer(num_epochs, tensorboard_log_dir, gpu_index, nni_report=Tru
         accelerator="gpu",
         max_epochs=num_epochs,
         num_sanity_val_steps=0,
-        devices=[gpu_index],
+        devices=[0],
         enable_progress_bar=False,
         enable_checkpointing=True,
         logger=TensorBoardLogger(save_dir=tensorboard_log_dir, name="", version=""),

@@ -1,4 +1,3 @@
-from typing import Any
 import lightning as pl
 import torch
 import torch.nn as nn
@@ -29,7 +28,7 @@ class NetworkEngine(pl.LightningModule):
         )
         return optimizer
 
-    def forward(self, input) -> Any:
+    def forward(self, input):
 
         input = input.swapaxes(1, 0)
         return self.model(input)
