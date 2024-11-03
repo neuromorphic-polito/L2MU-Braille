@@ -12,7 +12,8 @@ import psutil
 import torch
 import time
 from lightning.pytorch import Trainer, seed_everything
-from data.WISDM import WISDM
+from data.SMNIST import SMNIST
+from data.BRAILLE import BRAILLE
 from network_engine import NetworkEngine
 from lightning.pytorch.loggers import TensorBoardLogger
 from lightning.pytorch.callbacks import ModelCheckpoint
@@ -82,13 +83,19 @@ def load_model(num_inputs, num_outputs, architecture, params):
     return NetworkEngine(
         num_inputs=num_inputs,
         num_outputs=num_outputs,
+        architecture=architecture,
         params=params,
     )
 
 
 def load_data(dataset_path, batch_size):
     # Load dataset
-    return WISDM(dataset_path, batch_size=batch_size)
+    if "smnist" in dataset_path:
+        return SMNIST(dataset_path, batch_size=batch_size)
+    elif "braille" in dataset_path:
+        return BRAILLE(dataset_path, batch_size=batch_size)
+    else:
+        raise ValueError("Dataset not found")
 
 
 def process_train_val_results(training_hist, validation_hist, trainer):

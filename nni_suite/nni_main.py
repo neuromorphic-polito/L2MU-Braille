@@ -24,7 +24,7 @@ def parse_arguments():
     parser.add_argument(
         "-exp_name_base",
         type=str,
-        default="wisdm_exploration",
+        default="smnist_exploration",
         help="Name for the starting experiment.",
     )
     parser.add_argument(
@@ -78,7 +78,7 @@ def parse_arguments():
     parser.add_argument(
         "-dataset_path",
         type=str,
-        default="../data/wisdm-dataset/full_dataset.npz",
+        default="../data/smnist_splitted",
         help="Path to the dataset.",
     )
 

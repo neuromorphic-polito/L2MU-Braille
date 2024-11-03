@@ -5,10 +5,7 @@ from torch.nn import init
 import numpy as np
 
 
-def lecun_uniform(tensor: Tensor):
-    fan_in = init._calculate_correct_fan(tensor, mode='fan_in')
-    a = np.sqrt(3.0 / fan_in)
-    return init.uniform_(tensor, -a, a)
+
 
 
 def initialize_states(tensor: Tensor, shape: tuple, device):

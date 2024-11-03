@@ -1,8 +1,8 @@
-from typing import Any, Optional
+from typing import Any
 import lightning as pl
 import torch
 import torch.nn as nn
-from architecture.quantized.network_system.snn.l2mu import L2MUNet
+from architecture.full_precision.models.snn.l2mu import L2MU
 
 
 class NetworkEngine(pl.LightningModule):
@@ -10,11 +10,13 @@ class NetworkEngine(pl.LightningModule):
             self,
             num_inputs,
             num_outputs,
+            architecture,
             params,
     ):
         super().__init__()
 
-        self.model = L2MUNet(input_size=num_inputs, output_size=num_outputs, params=params, neuron_type='leaky')
+        self.architecture = architecture
+        self.model = L2MU(input_size=num_inputs, output_size=num_outputs, params=params, neuron_type='Leaky')
         self.loss_fn = nn.CrossEntropyLoss()
         self.running_length = 0
         self.running_total = 0
@@ -39,7 +41,7 @@ class NetworkEngine(pl.LightningModule):
 
         # measure accuracy
         batch_accuracy = self.calc_accuracy(pred_output, train_labels)
-        self.log("train_accuracy", batch_accuracy / len(train_labels), prog_bar=True)
+        self.log("train_accuracy", batch_accuracy, prog_bar=True)
 
         # measure loss
         train_loss = self.loss_fn(pred_output.sum(0), train_labels)
@@ -55,7 +57,7 @@ class NetworkEngine(pl.LightningModule):
 
         # measure accuracy
         batch_accuracy = self.calc_accuracy(pred_output, validation_labels)
-        self.log("val_accuracy", batch_accuracy / len(validation_labels), prog_bar=True)
+        self.log("val_accuracy", batch_accuracy, prog_bar=True)
 
         # measure loss
         val_loss = self.loss_fn(pred_output.sum(0), validation_labels)
@@ -70,7 +72,7 @@ class NetworkEngine(pl.LightningModule):
 
         # measure accuracy
         batch_accuracy = self.calc_accuracy(pred_output, test_labels)
-        self.log("test_accuracy", batch_accuracy / len(test_labels), prog_bar=True)
+        self.log("test_accuracy", batch_accuracy, prog_bar=True)
 
         # measure loss
         test_loss = self.loss_fn(pred_output.sum(0), test_labels)
@@ -90,5 +92,5 @@ class NetworkEngine(pl.LightningModule):
     @staticmethod
     def calc_accuracy(output, labels):
         _, idx = output.sum(dim=0).max(1)
-        batch_acc = (labels == idx).sum()  # .detach().cpu().numpy())
-        return batch_acc
+        label_count = (labels == idx).sum()
+        return label_count / len(labels)
