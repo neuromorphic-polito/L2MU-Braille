@@ -6,7 +6,7 @@ import random
 
 
 class BRAILLE(LightningDataModule):
-    def __init__(self, data_dir: str = "../data/braille_splitted", batch_size: int = 32, num_workers: int = 4):
+    def __init__(self, data_dir: str = "../data/braille_splitted", batch_size: int = 32, num_workers: int = 4, split=None):
         super().__init__()
         self.val_dataset = None
         self.train_dataset = None
@@ -17,17 +17,24 @@ class BRAILLE(LightningDataModule):
         dataset = torch.load(self.data_dir + '/ds_train.pt', weights_only=False)
         self.num_inputs = dataset[0][0].shape[1]
         self.num_outputs = dataset[:][1].unique().shape[0]
+        self.split = split
 
     def setup(self, stage):
         match stage:
             case 'fit':
                 # Store the current state
-                original_state = random.getstate()
-                random.seed(time.time())
-                random_number = random.randint(0, 9)
-                print(f'Dataset split selected: {random_number}')
-                random.setstate(original_state)
-                self.train_dataset, self.val_dataset = torch.load(self.data_dir + f'/ds_train_{random_number}.pt', weights_only=False), torch.load(self.data_dir + f'/ds_val_{random_number}.pt', weights_only=False)
+                if self.split is None:
+                    original_state = random.getstate()
+                    random.seed(time.time())
+                    random_number = random.randint(0, 9)
+                    print(f'Dataset split selected: {random_number}')
+                    random.setstate(original_state)
+                    self.train_dataset, self.val_dataset = torch.load(self.data_dir + f'/ds_train_{random_number}.pt', weights_only=False), torch.load(self.data_dir + f'/ds_val_{random_number}.pt', weights_only=False)
+                elif self.split == -1:
+                    self.train_dataset, self.val_dataset = torch.load(self.data_dir + f'/ds_train.pt', weights_only=False), torch.load(self.data_dir + f'/ds_val.pt', weights_only=False)
+                else:
+                    print(f'Dataset split selected: {self.split}')
+                    self.train_dataset, self.val_dataset = torch.load(self.data_dir + f'/ds_train_{self.split}.pt', weights_only=False), torch.load(self.data_dir + f'/ds_val_{self.split}.pt', weights_only=False)
             case 'test':
                 self.test_dataset = torch.load(self.data_dir + '/ds_test.pt', weights_only=False)
             case _:

@@ -88,12 +88,12 @@ def load_model(num_inputs, num_outputs, architecture, params):
     )
 
 
-def load_data(dataset_path, batch_size):
+def load_data(dataset_path, batch_size, split=None):
     # Load dataset
     if "smnist" in dataset_path:
         return SMNIST(dataset_path, batch_size=batch_size)
     elif "braille" in dataset_path:
-        return BRAILLE(dataset_path, batch_size=batch_size)
+        return BRAILLE(dataset_path, batch_size=batch_size, split=split)
     else:
         raise ValueError("Dataset not found")
 
@@ -335,7 +335,7 @@ if __name__ == "__main__":
 
     logger.debug(f"Experiment started on: {experiment_datetime}")
 
-    limit_cpu_cores(cpu_limit_cores=args.cpu_limit_cores)
+    limit_cpu_cores(cpu_limit_cores=4)
 
     try:
 
