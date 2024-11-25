@@ -130,11 +130,12 @@ def generate_confusion_matrix(dataset_path, params, path_model, path_plot, exper
     cm = confusion_matrix(trues, preds, normalize="true")
     cm_df = pd.DataFrame(cm, index=[ii for ii in labels], columns=[jj for jj in labels])
     plt.figure("cm", figsize=(12, 9))
-    sn.heatmap(cm_df, annot=True, fmt=".2f", cbar=False, square=False, cmap="YlGnBu")
-    plt.xlabel("\nPredicted")
-    plt.ylabel("True\n")
-    plt.xticks(rotation=0)
-    plt.yticks(rotation=0)
+    sn.heatmap(cm_df, annot=True, fmt=".2f", cbar=False, square=False, cmap="YlOrBr",
+               annot_kws={"size": 20, "fontfamily": "serif"})
+    plt.xlabel("\nPredicted", fontsize=21, fontweight='medium')
+    plt.ylabel("True\n", fontsize=21, fontweight='medium')
+    plt.xticks(rotation=0, fontsize=18, fontweight='medium')
+    plt.yticks(rotation=0, fontsize=18, fontweight='medium')
     plt.tight_layout()
 
     if save_fig:
@@ -155,31 +156,36 @@ def parse_arguments():
     parser.add_argument(
         "-exp_name",
         type=str,
-        default="braille_exploration_l2mu",
+        default="braille_full_exploration_l2mu",
         help="Name for the starting experiment.",
     )
     # ID of the NNI experiment to refer to
     parser.add_argument(
         "-experiment_id",
         type=str,
-        default="985160qm",
-        # NNI experiment for best result: n52hk8t9 ; the original one for Neu-BrAuER: rebsp36h
+        default="0id1ys96",
         help="ID of the NNI experiment whose results are to be used.",
     )
 
     parser.add_argument(
         "-trial_id",
         type=str,
-        default="VvPPI",
-        # NNI experiment for best result: n52hk8t9 ; the original one for Neu-BrAuER: rebsp36h
+        default="vWt9b",
         help="Trial id of the NNI experiment.",
+    )
+
+    parser.add_argument(
+        "-onnx_export",
+        type=bool,
+        default=False,
+        help="Set to True if you want to export the model into onnx",
     )
 
     # Filepath for Braille data
     parser.add_argument(
         "-dataset_path",
         type=str,
-        default="../data/braille_splitted",
+        default="../data/braille_full_splitted",
         help="Path for the dataset to be loaded.",
     )
 
@@ -468,7 +474,7 @@ if __name__ == "__main__":
             with open(file_path) as f:
                 params = json.load(f)
 
-        path_best_model_from_hpo = Path(f"{args.working_directory}/best_models/{args.exp_name}/checkpoints/best.ckpt")
+        path_best_model_from_hpo = Path(f"{args.working_directory}/results/best_model/{args.exp_name}/best.ckpt")
         best_metric_from_hpo = test_run(args, params, path_best_model_from_hpo) * 100
 
         logger.debug(f"Experiment name: {args.exp_name}")
@@ -559,7 +565,7 @@ if __name__ == "__main__":
 
         logger.debug(f"Use nni best model to calculate test accuracy and generate confusion matrix")
 
-        path_model = Path(f'{args.working_directory}/best_models/{args.exp_name}/checkpoints/best.ckpt')
+        path_model = Path(f'{args.working_directory}/results/best_model/{args.exp_name}/best.ckpt')
         test_accuracy = test_run(args=args, params=params, path_model=path_model)
         print(f"Test accuracy is {test_accuracy * 100}")
 
@@ -576,8 +582,8 @@ if __name__ == "__main__":
                                   path_plot=path_figure, experiment_id=args.experiment_id, selected_id=best_test_id,
                                   experiment_datetime=experiment_datetime, save_fig=args.save_fig)
         parameter_statistic(path_model)
-
-        export_to_onnx(path_model, args)
+        if args.onnx_export:
+            export_to_onnx(path_model, args)
 
     conclusion_datetime = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
     logger.debug(f"Experiment concluded on: {conclusion_datetime}")

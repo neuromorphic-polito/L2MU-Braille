@@ -1,3 +1,7 @@
 .idea
 data/smnist
 data/smnist_splitted
+data/SHD
+data/braille_full_splitted
+data/braille_splitted
+nni-experiments

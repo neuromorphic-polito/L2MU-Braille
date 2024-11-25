@@ -4,6 +4,9 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/data/smnist" />
       <excludeFolder url="file://$MODULE_DIR$/data/smnist_splitted" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/data/SHD" />
+      <excludeFolder url="file://$MODULE_DIR$/nni-experiments" />
     </content>
     <orderEntry type="jdk" jdkName="nice_2025" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

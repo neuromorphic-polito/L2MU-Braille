@@ -18,6 +18,7 @@ class BRAILLE(LightningDataModule):
         self.num_inputs = dataset[0][0].shape[1]
         self.num_outputs = dataset[:][1].unique().shape[0]
         self.split = split
+        self.label_names = ["Space", "A", "E", "I", "O", "U", "Y"] if 'full' not in data_dir else None
 
     def setup(self, stage):
         match stage:
@@ -37,6 +38,8 @@ class BRAILLE(LightningDataModule):
                     self.train_dataset, self.val_dataset = torch.load(self.data_dir + f'/ds_train_{self.split}.pt', weights_only=False), torch.load(self.data_dir + f'/ds_val_{self.split}.pt', weights_only=False)
             case 'test':
                 self.test_dataset = torch.load(self.data_dir + '/ds_test.pt', weights_only=False)
+            case 'predict':
+                self.test_dataset = torch.load(self.data_dir + '/ds_test.pt', weights_only=False)
             case _:
                 raise ValueError(f"Stage {stage} not supported")
 
@@ -48,3 +51,7 @@ class BRAILLE(LightningDataModule):
 
     def test_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers, persistent_workers=True)
+
+    def predict_dataloader(self):
+        return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers,
+                          persistent_workers=True)
