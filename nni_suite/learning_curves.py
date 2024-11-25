@@ -51,7 +51,7 @@ def generate_metric_plot(
             y_label = f'{metric.capitalize()}'
             pos_legend = "upper right"
             scale_factor = 1
-            y_lim = (0, 12)
+            y_lim = (0, 8)
 
     # Plot training data: solid red line
     plt.plot(
@@ -136,7 +136,7 @@ def generate_metric_plot(
 if __name__ == "__main__":
 
     # Specify the folder path
-    experiment_name = 'braille_full_exploration_l2mu'
+    experiment_name = 'braille_exploration_l2mu'
     folder_path = Path(f'/home/leto/nice_2025/model_insights/post_nni_opt/tensorboard/{experiment_name}')
 
     # Find all files that end with '.ckpt'
