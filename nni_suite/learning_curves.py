@@ -42,7 +42,7 @@ def generate_metric_plot(
 
     match metric:
         case "accuracy":
-            y_label = f'{metric.capitalize()} (%)'
+            y_label = f'{metric.capitalize()} ($\%$)'
             pos_legend = "lower right"
             scale_factor = 100
             y_lim = (0, 105)
@@ -57,9 +57,9 @@ def generate_metric_plot(
     plt.plot(
         range(1, len(train_data) + 1),
         scale_factor * np.array(train_data),
-        color="#CE8147",
+        color="#074E37",
         linestyle='-',  # Solid line for training
-        linewidth=2,    # Standard thickness for training
+        linewidth=1.5,    # Standard thickness for training
         label="Training"
     )
 
@@ -67,9 +67,9 @@ def generate_metric_plot(
     plt.plot(
         range(1, len(val_data) + 1),
         scale_factor * np.array(val_data),
-        color="#1D8A99",
-        linestyle='--',  # Dashed line for validation
-        linewidth=2,     # Standard thickness for validation
+        color="#E07712",
+        linestyle='-.',  # Dashed line for validation
+        linewidth=1.5,     # Standard thickness for validation
         label="Validation"
     )
 
@@ -82,7 +82,7 @@ def generate_metric_plot(
             range(1, len(train_data) + 1),
             scale_factor * np.clip(train_data + std_train_data, 0, 100/scale_factor),
             scale_factor * np.clip(train_data - std_train_data, 0, 100/scale_factor),
-            color="#CE8147",  # Opaque fill for training error region
+            color="#074E37",  # Opaque fill for training error region
             hatch='\\',
             zorder=1,
             alpha=0.3,
@@ -93,7 +93,7 @@ def generate_metric_plot(
             range(1, len(val_data) + 1),
             scale_factor * np.clip(val_data + std_val_data, 0, 100/scale_factor),
             scale_factor * np.clip(val_data - std_val_data, 0, 100/scale_factor),
-            color="#1D8A99",
+            color="#E07712",
             hatch='.',
             alpha=0.3,  # Lighter fill for validation error region
             zorder=2
@@ -102,7 +102,8 @@ def generate_metric_plot(
     plt.xlabel("Epoch")
     plt.ylabel(y_label)
     plt.ylim(y_lim)
-    plt.xlim(-5, 305)
+    plt.xlim(1, 100)
+    plt.xticks(ticks=[1,10,20,30,40,50,60,70,80,90,100])
 
 
     # Simple, clean legend
@@ -162,10 +163,10 @@ if __name__ == "__main__":
             np.array(validation_results)[:, 1],
         ]
 
-        loss_train_list.append(loss_hist[0])
-        acc_train_list.append(acc_hist[0])
-        loss_val_list.append(loss_hist[1])
-        acc_val_list.append(acc_hist[1])
+        loss_train_list.append(loss_hist[0][:100])
+        acc_train_list.append(acc_hist[0][:100])
+        loss_val_list.append(loss_hist[1][:100])
+        acc_val_list.append(acc_hist[1][:100])
 
     path_figures = Path(f'../model_insights/plots/learning_curves/{experiment_name}')
     path_figures.mkdir(parents=True, exist_ok=True)

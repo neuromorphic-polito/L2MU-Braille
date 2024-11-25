@@ -18,7 +18,7 @@ class BRAILLE(LightningDataModule):
         self.num_inputs = dataset[0][0].shape[1]
         self.num_outputs = dataset[:][1].unique().shape[0]
         self.split = split
-        self.label_names = ["Space", "A", "E", "I", "O", "U", "Y"] if 'full' not in data_dir else None
+        self.label_names = ["Space", "A", "E", "I", "O", "U", "Y"] if 'full' not in data_dir else ["Space", 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
     def setup(self, stage):
         match stage:

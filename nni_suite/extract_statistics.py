@@ -29,6 +29,7 @@ import datetime
 import logging
 import argparse
 from pathlib import Path
+from matplotlib.colors import LinearSegmentedColormap
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -130,12 +131,12 @@ def generate_confusion_matrix(dataset_path, params, path_model, path_plot, exper
     cm = confusion_matrix(trues, preds, normalize="true")
     cm_df = pd.DataFrame(cm, index=[ii for ii in labels], columns=[jj for jj in labels])
     plt.figure("cm", figsize=(12, 9))
-    sn.heatmap(cm_df, annot=True, fmt=".2f", cbar=False, square=False, cmap="YlOrBr",
-               annot_kws={"size": 20, "fontfamily": "serif"})
+    sn.heatmap(cm_df, annot=True, fmt=".2f", cbar=False, square=False, cmap=LinearSegmentedColormap.from_list("custom_cmap", ["white", "#7C0B2B"]),#"YlOrBr",
+               annot_kws={"size": 16, "fontfamily": "serif"})
     plt.xlabel("\nPredicted", fontsize=21, fontweight='medium')
     plt.ylabel("True\n", fontsize=21, fontweight='medium')
-    plt.xticks(rotation=0, fontsize=18, fontweight='medium')
-    plt.yticks(rotation=0, fontsize=18, fontweight='medium')
+    plt.xticks(rotation=0, fontsize=12, fontweight='medium')
+    plt.yticks(rotation=0, fontsize=12, fontweight='medium')
     plt.tight_layout()
 
     if save_fig:
@@ -156,7 +157,7 @@ def parse_arguments():
     parser.add_argument(
         "-exp_name",
         type=str,
-        default="braille_full_exploration_l2mu",
+        default="braille_exploration_l2mu",
         help="Name for the starting experiment.",
     )
     # ID of the NNI experiment to refer to
@@ -185,7 +186,7 @@ def parse_arguments():
     parser.add_argument(
         "-dataset_path",
         type=str,
-        default="../data/braille_full_splitted",
+        default="../data/braille_splitted",
         help="Path for the dataset to be loaded.",
     )
 
@@ -207,7 +208,7 @@ def parse_arguments():
     parser.add_argument(
         "-repetitions",
         type=int,
-        default=10,  # default: 10
+        default=0,  # default: 10
         help="Number of trainings to be performed for statistical evaluation.",
     )
 
@@ -242,7 +243,7 @@ def parse_arguments():
     parser.add_argument(
         "-retrain_model",
         type=bool,
-        default=True,
+        default=False,
         help="Set if you want to extract statistics/learning curves and confusion matrix",
     )
 
@@ -257,7 +258,7 @@ def parse_arguments():
     parser.add_argument(
         "-nni_metrics",
         type=bool,
-        default=True,
+        default=False,
         help="Take metrics and params from nni best model",
     )
 
@@ -508,8 +509,6 @@ if __name__ == "__main__":
         for rpt, split in enumerate(splits_list):
 
             logger.debug(f"REPETITION {rpt + 1}/{len(splits_list)}")
-
-
 
             # Train the network with validation and test
             args.split = split
