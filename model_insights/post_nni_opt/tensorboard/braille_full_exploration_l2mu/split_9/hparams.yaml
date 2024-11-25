@@ -1,0 +1,18 @@
+architecture: L2MU
+num_inputs: 24
+num_outputs: 27
+params:
+  batch_size: 64.0
+  beta_spk_h: 0.15
+  beta_spk_m: 0.35
+  beta_spk_output: 0.15
+  beta_spk_u: 0.65
+  hidden_size: 160.0
+  lr: 0.0004
+  memory_size: 250.0
+  order: 4.0
+  theta: 7.0
+  threshold_spk_h: 0.75
+  threshold_spk_m: 0.4
+  threshold_spk_output: 0.1
+  threshold_spk_u: 0.1
