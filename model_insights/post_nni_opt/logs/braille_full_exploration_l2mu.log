@@ -18376,3 +18376,93 @@
 2024-11-25_12:10:49 __main__ ------------------------------------------------------------------------------------
 
 
+2024-11-26_09:52:48 __main__ Experiment started on: 2024-11-26_09:52:48
+2024-11-26_09:52:49 nni_experiments_training Selected CPU cores: [0, 2, 3, 5]
+2024-11-26_09:52:49 __main__ Get best model from the best model path folder
+2024-11-26_09:52:51 __main__ Experiment name: braille_full_exploration_l2mu
+2024-11-26_09:52:51 __main__ 	Best NNI metrics (test_accuracy): 85.5555534362793
+2024-11-26_09:52:51 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:52:51 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:52:51 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:52:51 nni_experiments_training Trial results: 
+2024-11-26_09:52:51 nni_experiments_training 	Best training accuracy: 100.0% (56.8519% corresponding validation accuracy) at epoch 15/300
+2024-11-26_09:52:51 nni_experiments_training 	Best validation accuracy: 82.5% (100.0% corresponding training accuracy) at epoch 177/300
+2024-11-26_09:52:52 nni_experiments_training Test accuracy 85.5556%
+2024-11-26_09:52:52 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:52:54 __main__ Test accuracy: 85.5556%
+2024-11-26_09:52:57 __main__ Experiment concluded on: 2024-11-26_09:52:57
+2024-11-26_09:52:57 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:53:19 __main__ Experiment started on: 2024-11-26_09:53:19
+2024-11-26_09:53:20 nni_experiments_training Selected CPU cores: [0, 3, 5, 8]
+2024-11-26_09:53:20 __main__ Get best model from the best model path folder
+2024-11-26_09:53:22 __main__ Experiment name: braille_full_exploration_l2mu
+2024-11-26_09:53:22 __main__ 	Best NNI metrics (test_accuracy): 85.5555534362793
+2024-11-26_09:53:22 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:53:22 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:53:22 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:53:22 nni_experiments_training Trial results: 
+2024-11-26_09:53:22 nni_experiments_training 	Best training accuracy: 100.0% (56.8519% corresponding validation accuracy) at epoch 15/300
+2024-11-26_09:53:22 nni_experiments_training 	Best validation accuracy: 82.5% (100.0% corresponding training accuracy) at epoch 177/300
+2024-11-26_09:53:24 nni_experiments_training Test accuracy 85.5556%
+2024-11-26_09:53:24 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:53:25 __main__ Test accuracy: 85.5556%
+2024-11-26_09:53:29 __main__ Experiment concluded on: 2024-11-26_09:53:29
+2024-11-26_09:53:29 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:54:03 __main__ Experiment started on: 2024-11-26_09:54:03
+2024-11-26_09:54:03 nni_experiments_training Selected CPU cores: [3, 4, 7, 8]
+2024-11-26_09:54:03 __main__ Get best model from the best model path folder
+2024-11-26_09:54:05 __main__ Experiment name: braille_full_exploration_l2mu
+2024-11-26_09:54:05 __main__ 	Best NNI metrics (test_accuracy): 85.5555534362793
+2024-11-26_09:54:05 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:54:05 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:54:05 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:54:06 nni_experiments_training Trial results: 
+2024-11-26_09:54:06 nni_experiments_training 	Best training accuracy: 100.0% (56.8519% corresponding validation accuracy) at epoch 15/300
+2024-11-26_09:54:06 nni_experiments_training 	Best validation accuracy: 82.5% (100.0% corresponding training accuracy) at epoch 177/300
+2024-11-26_09:54:07 nni_experiments_training Test accuracy 85.5556%
+2024-11-26_09:54:07 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:54:09 __main__ Test accuracy: 85.5556%
+2024-11-26_09:54:12 __main__ Experiment concluded on: 2024-11-26_09:54:12
+2024-11-26_09:54:12 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:58:39 __main__ Experiment started on: 2024-11-26_09:58:39
+2024-11-26_09:58:39 nni_experiments_training Selected CPU cores: [5, 6, 7, 8]
+2024-11-26_09:58:40 __main__ Get best model from the best model path folder
+2024-11-26_09:58:41 __main__ Experiment name: braille_full_exploration_l2mu
+2024-11-26_09:58:41 __main__ 	Best NNI metrics (test_accuracy): 85.5555534362793
+2024-11-26_09:58:41 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:58:42 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:58:42 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:58:42 nni_experiments_training Trial results: 
+2024-11-26_09:58:42 nni_experiments_training 	Best training accuracy: 100.0% (56.8519% corresponding validation accuracy) at epoch 15/300
+2024-11-26_09:58:42 nni_experiments_training 	Best validation accuracy: 82.5% (100.0% corresponding training accuracy) at epoch 177/300
+2024-11-26_09:58:43 nni_experiments_training Test accuracy 85.5556%
+2024-11-26_09:58:43 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:58:45 __main__ Test accuracy: 85.5556%
+2024-11-26_09:58:48 __main__ Experiment concluded on: 2024-11-26_09:58:48
+2024-11-26_09:58:48 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_10:17:00 __main__ Experiment started on: 2024-11-26_10:17:00
+2024-11-26_10:17:01 nni_experiments_training Selected CPU cores: [0, 1, 2, 3]
+2024-11-26_10:17:01 __main__ Get best model from the best model path folder
+2024-11-26_10:17:03 __main__ Experiment name: braille_full_exploration_l2mu
+2024-11-26_10:17:03 __main__ 	Best NNI metrics (test_accuracy): 85.5555534362793
+2024-11-26_10:17:03 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_10:17:03 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_10:17:03 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_full_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_10:17:03 nni_experiments_training Trial results: 
+2024-11-26_10:17:03 nni_experiments_training 	Best training accuracy: 100.0% (56.8519% corresponding validation accuracy) at epoch 15/300
+2024-11-26_10:17:03 nni_experiments_training 	Best validation accuracy: 82.5% (100.0% corresponding training accuracy) at epoch 177/300
+2024-11-26_10:17:04 nni_experiments_training Test accuracy 85.5556%
+2024-11-26_10:17:04 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_10:17:06 __main__ Test accuracy: 85.5556%
+2024-11-26_10:17:10 __main__ Experiment concluded on: 2024-11-26_10:17:10
+2024-11-26_10:17:10 __main__ ------------------------------------------------------------------------------------
+
+

@@ -132,9 +132,9 @@ def generate_confusion_matrix(dataset_path, params, path_model, path_plot, exper
     cm_df = pd.DataFrame(cm, index=[ii for ii in labels], columns=[jj for jj in labels])
     plt.figure("cm", figsize=(12, 9))
     sn.heatmap(cm_df, annot=True, fmt=".2f", cbar=False, square=False, cmap=LinearSegmentedColormap.from_list("custom_cmap", ["white", "#7C0B2B"]),#"YlOrBr",
-               annot_kws={"size": 16, "fontfamily": "serif"})
+               annot_kws={"size": 10, "fontfamily": "serif"})
     plt.xlabel("\nPredicted", fontsize=21, fontweight='medium')
-    plt.ylabel("True\n", fontsize=21, fontweight='medium')
+    plt.ylabel("True", fontsize=21, fontweight='medium')
     plt.xticks(rotation=0, fontsize=12, fontweight='medium')
     plt.yticks(rotation=0, fontsize=12, fontweight='medium')
     plt.tight_layout()
@@ -157,7 +157,7 @@ def parse_arguments():
     parser.add_argument(
         "-exp_name",
         type=str,
-        default="braille_exploration_l2mu",
+        default="braille_full_exploration_l2mu",
         help="Name for the starting experiment.",
     )
     # ID of the NNI experiment to refer to
@@ -186,7 +186,7 @@ def parse_arguments():
     parser.add_argument(
         "-dataset_path",
         type=str,
-        default="../data/braille_splitted",
+        default="../data/braille_full_splitted",
         help="Path for the dataset to be loaded.",
     )
 

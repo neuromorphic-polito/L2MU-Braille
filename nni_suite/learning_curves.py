@@ -99,15 +99,20 @@ def generate_metric_plot(
             zorder=2
         )
 
-    plt.xlabel("Epoch")
-    plt.ylabel(y_label)
+    plt.xlabel("Epoch", fontsize=12)
+    plt.ylabel(y_label,  fontsize=12)
     plt.ylim(y_lim)
+    if metric == 'loss':
+        plt.yticks(ticks=[0, 1, 2, 3, 4, 5, 6, 7], fontsize=10)
+    else:
+        plt.yticks(ticks=[i for i in range(0, 101, 20)], fontsize=10)
     plt.xlim(1, 100)
-    plt.xticks(ticks=[1,10,20,30,40,50,60,70,80,90,100])
+    plt.xticks(ticks=[1,10,20,30,40,50,60,70,80,90,100, 110, 120, 130, 140, 150], fontsize=10)
+
 
 
     # Simple, clean legend
-    plt.legend(loc=pos_legend)
+    plt.legend(loc=pos_legend, fontsize=10)
 
     plt.tight_layout()
 
@@ -163,10 +168,11 @@ if __name__ == "__main__":
             np.array(validation_results)[:, 1],
         ]
 
-        loss_train_list.append(loss_hist[0][:100])
-        acc_train_list.append(acc_hist[0][:100])
-        loss_val_list.append(loss_hist[1][:100])
-        acc_val_list.append(acc_hist[1][:100])
+        length_epochs = 300
+        loss_train_list.append(loss_hist[0][:length_epochs])
+        acc_train_list.append(acc_hist[0][:length_epochs])
+        loss_val_list.append(loss_hist[1][:length_epochs])
+        acc_val_list.append(acc_hist[1][:length_epochs])
 
     path_figures = Path(f'../model_insights/plots/learning_curves/{experiment_name}')
     path_figures.mkdir(parents=True, exist_ok=True)

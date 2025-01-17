@@ -18273,3 +18273,75 @@
 2024-11-25_15:56:36 __main__ ------------------------------------------------------------------------------------
 
 
+2024-11-26_09:47:46 __main__ Experiment started on: 2024-11-26_09:47:46
+2024-11-26_09:47:47 nni_experiments_training Selected CPU cores: [1, 2, 4, 5]
+2024-11-26_09:47:47 __main__ Get best model from the best model path folder
+2024-11-26_09:47:48 __main__ Experiment name: braille_exploration_l2mu
+2024-11-26_09:47:48 __main__ 	Best NNI metrics (test_accuracy): 97.14285731315613
+2024-11-26_09:47:48 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:47:48 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:47:48 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:47:48 nni_experiments_training Trial results: 
+2024-11-26_09:47:48 nni_experiments_training 	Best training accuracy: 100.0% (73.2143% corresponding validation accuracy) at epoch 9/300
+2024-11-26_09:47:48 nni_experiments_training 	Best validation accuracy: 94.6429% (95.0% corresponding training accuracy) at epoch 204/300
+2024-11-26_09:47:49 nni_experiments_training Test accuracy 95.0%
+2024-11-26_09:47:49 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:47:49 __main__ Test accuracy: 97.1429%
+2024-11-26_09:47:50 __main__ Experiment concluded on: 2024-11-26_09:47:50
+2024-11-26_09:47:50 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:49:20 __main__ Experiment started on: 2024-11-26_09:49:20
+2024-11-26_09:49:21 nni_experiments_training Selected CPU cores: [0, 1, 2, 4]
+2024-11-26_09:49:21 __main__ Get best model from the best model path folder
+2024-11-26_09:49:22 __main__ Experiment name: braille_exploration_l2mu
+2024-11-26_09:49:22 __main__ 	Best NNI metrics (test_accuracy): 97.14285731315613
+2024-11-26_09:49:22 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:49:22 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:49:22 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:49:22 nni_experiments_training Trial results: 
+2024-11-26_09:49:22 nni_experiments_training 	Best training accuracy: 100.0% (73.2143% corresponding validation accuracy) at epoch 9/300
+2024-11-26_09:49:22 nni_experiments_training 	Best validation accuracy: 94.6429% (95.0% corresponding training accuracy) at epoch 204/300
+2024-11-26_09:49:22 nni_experiments_training Test accuracy 95.0%
+2024-11-26_09:49:22 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:49:23 __main__ Test accuracy: 97.1429%
+2024-11-26_09:49:24 __main__ Experiment concluded on: 2024-11-26_09:49:24
+2024-11-26_09:49:24 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:55:29 __main__ Experiment started on: 2024-11-26_09:55:29
+2024-11-26_09:55:30 nni_experiments_training Selected CPU cores: [0, 3, 7, 8]
+2024-11-26_09:55:30 __main__ Get best model from the best model path folder
+2024-11-26_09:55:31 __main__ Experiment name: braille_exploration_l2mu
+2024-11-26_09:55:31 __main__ 	Best NNI metrics (test_accuracy): 97.14285731315613
+2024-11-26_09:55:31 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:55:31 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:55:31 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:55:31 nni_experiments_training Trial results: 
+2024-11-26_09:55:31 nni_experiments_training 	Best training accuracy: 100.0% (73.2143% corresponding validation accuracy) at epoch 9/300
+2024-11-26_09:55:31 nni_experiments_training 	Best validation accuracy: 94.6429% (95.0% corresponding training accuracy) at epoch 204/300
+2024-11-26_09:55:32 nni_experiments_training Test accuracy 95.0%
+2024-11-26_09:55:32 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:55:32 __main__ Test accuracy: 97.1429%
+2024-11-26_09:55:34 __main__ Experiment concluded on: 2024-11-26_09:55:34
+2024-11-26_09:55:34 __main__ ------------------------------------------------------------------------------------
+
+
+2024-11-26_09:55:49 __main__ Experiment started on: 2024-11-26_09:55:49
+2024-11-26_09:55:49 nni_experiments_training Selected CPU cores: [0, 1, 2, 4]
+2024-11-26_09:55:49 __main__ Get best model from the best model path folder
+2024-11-26_09:55:50 __main__ Experiment name: braille_exploration_l2mu
+2024-11-26_09:55:50 __main__ 	Best NNI metrics (test_accuracy): 97.14285731315613
+2024-11-26_09:55:50 __main__ Retrain model from scratch to extract learning curves from default seed
+2024-11-26_09:55:50 nni_experiments_training Checkpoint file found: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:55:50 nni_experiments_training Restoring model from checkpoint path: ../model_insights/post_nni_opt/tensorboard/braille_exploration_l2mu/split_0/checkpoints/last.ckpt
+2024-11-26_09:55:50 nni_experiments_training Trial results: 
+2024-11-26_09:55:50 nni_experiments_training 	Best training accuracy: 100.0% (73.2143% corresponding validation accuracy) at epoch 9/300
+2024-11-26_09:55:50 nni_experiments_training 	Best validation accuracy: 94.6429% (95.0% corresponding training accuracy) at epoch 204/300
+2024-11-26_09:55:51 nni_experiments_training Test accuracy 95.0%
+2024-11-26_09:55:51 __main__ Use nni best model to calculate test accuracy and generate confusion matrix
+2024-11-26_09:55:52 __main__ Test accuracy: 97.1429%
+2024-11-26_09:55:53 __main__ Experiment concluded on: 2024-11-26_09:55:53
+2024-11-26_09:55:53 __main__ ------------------------------------------------------------------------------------
+
+
