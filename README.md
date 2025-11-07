@@ -169,12 +169,18 @@ python test.py
 If you use this work, please cite:
 
 ```bibtex
-@inproceedings{leto2025l2mu,
-  title={A LIF-based Legendre Memory Unit as Neuromorphic State Space Model benchmarked on a second-long spatio-temporal task},
+@INPROCEEDINGS{11065250,
   author={Leto, Benedetto and Urgese, Gianvito and Macii, Enrico and Fra, Vittorio},
+  booktitle={2025 Neuro Inspired Computational Elements (NICE)}, 
+  title={A LIF-based Legendre Memory Unit as neuromorphic State Space Model benchmarked on a second-long spatio-temporal task}, 
   year={2025},
-  booktitle={NICE 2025}
+  volume={},
+  number={},
+  pages={1-9},
+  keywords={Braille;Neuromorphics;Event detection;Computational modeling;Biological system modeling;Neurons;Benchmark testing;Mathematical models;Hardware;Context modeling;state space model;Legendre memory unit;leaky integrate-and-fire;event-based;time series},
+  doi={10.1109/NICE65350.2025.11065250}
 }
+
 ```
 
 ---

@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this repo, please cite it as below."
+type: conference-paper
+title: "LIF-based Legendre Memory Unit (L²MU)"
+abstract: "Official implementation of the L²MU: a fully spiking reinterpretation of the Legendre Memory Unit where each core block is replaced by populations of Leaky Integrate-and-Fire neurons. All communications occur via synaptic currents and spike trains, leading to a neuromorphic state-space model capable of long-range temporal processing and energy-efficient computation."
+authors:
+  - family-names: "Leto"
+    given-names: "Benedetto"
+    email: "benedetto.leto@polito.it"
+    affiliation: "Politecnico di Torino"
+    orcid: "https://orcid.org/0009-0007-8891-5051"
+  - family-names: "Urgese"
+    given-names: "Gianvito"
+    email: "gianvito.urgese@polito.it"
+    affiliation: "Politecnico di Torino"
+    orcid: "https://orcid.org/0000-0003-2672-7593"
+  - family-names: "Macii"
+    given-names: "Enrico"
+    email: "enrico.macii@polito.it"
+    affiliation: "Politecnico di Torino"
+    orcid: "https://orcid.org/0000-0001-9046-5618"
+  - family-names: "Fra"
+    given-names: "Vittorio"
+    email: "vittorio.fra@polito.it"
+    affiliation: "Politecnico di Torino"
+    orcid: "https://orcid.org/0000-0001-9175-2838"
+repository-code: "https://github.com/neuromorphic-polito/L2MU-Braille"
+url: "https://github.com/neuromorphic-polito/L2MU-Braille"
+date-released: 2025-03-17  
+version: "1.0.0"
+license: Apache-2.0 
+keywords:
+  - "neuromorphic computing"
+  - "spiking neural networks"
+  - "legendre memory unit"
+  - "state space models"
+  - "temporal processing"
+  - "spike-based computation"
+  - "braille recognition"
+  - "event-based learning"
+preferred-citation:
+  type: conference-paper
+  title: "A LIF-based Legendre Memory Unit as Neuromorphic State Space Model benchmarked on a second-long spatio-temporal task"
+  authors:
+    - family-names: "Leto"
+      given-names: "Benedetto"
+    - family-names: "Urgese"
+      given-names: "Gianvito"
+    - family-names: "Macii"
+      given-names: "Enrico"
+    - family-names: "Fra"
+      given-names: "Vittorio"
+  conference:
+    name: "NICE 2025"
+  year: 2025
+  abstract: "This repository hosts the implementation and experiments from the paper. The L²MU is a fully spiking reinterpretation of the Legendre Memory Unit (LMU), where each core block—encoder, hidden state, and memory—is replaced by a population of Leaky Integrate-and-Fire (LIF) neurons. All communications between these populations occur via synaptic currents and spike trains, leading to a neuromorphic state-space model capable of long-range temporal processing and energy-efficient computation. Benchmarking on the event-based Braille letter recognition task shows that the L²MU outperforms recurrent SNNs, achieving 85.6% accuracy on the complete 27-class dataset and 97.1% on a 7-class subset."
