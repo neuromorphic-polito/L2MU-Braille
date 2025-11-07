@@ -36,12 +36,6 @@ $U_t = \beta U_{t-1} + W X_t - S_{t-1} \Theta$
 \]
 and spikes when \( $U_t > \Theta$ \).
 
-The memory population evolves following the discretized LMU state-space dynamics:
-\[
-m_t = A_d m_{t-1}^{spk} + B_d u_t^{spk}
-\]
-with spike emission when \( m_t^{mem} > \Theta_m \).
-
 ---
 
 ## Methodology
@@ -187,5 +181,5 @@ If you use this work, please cite:
 
 ## Authors
 
-**Benedetto Leto**, **Gianvito Urgese**, **Enrico Macii**, **Vittorio Fra**  
+**Benedetto Leto** (benedetto.leto@polito.it), **Gianvito Urgese** (gianvito.urgese@polito.it), **Enrico Macii** (enrico.macii@polito.it), **Vittorio Fra** (vittorio.fra@polito.it)  
 Politecnico di Torino, Italy
