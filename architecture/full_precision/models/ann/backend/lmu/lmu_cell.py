@@ -36,8 +36,8 @@ class LMUCell(LMUCore):
         spk_input = input_
 
         # Equation (7) of the paper
-        spk_u = self.operation.add(self.e_x(spk_input), self.operation.add(self.e_h(spk_hidden), self.e_m(
-            spk_memory)))
+        spk_u = self.e_x(spk_input) + self.e_h(spk_hidden) + self.e_m(
+            spk_memory)
 
         # separate memory/order dimensions
         spk_u = torch.unsqueeze(spk_u, -1)
@@ -46,7 +46,7 @@ class LMUCell(LMUCore):
         # if self.discretizer == 'zoh' and self.trainable_theta:
         # self.lin_A.weight, self.lin_B.weight = self._cont2discrete_zoh(self._base_A * self.theta_inv,
         # self._base_B * self.theta_inv)
-        spk_memory = self.operation.add(self.A(spk_memory), self.B(spk_u))
+        spk_memory = self.A(spk_memory) + self.B(spk_u)
 
         if self.discretizer == 'euler' and self.trainable_theta:
             spk_memory += spk_memory * self.theta_inv
@@ -55,8 +55,8 @@ class LMUCell(LMUCore):
         spk_memory = torch.reshape(spk_memory, (-1, self.memory_size * self.order))
 
         # Equation (6) of the paper
-        spk_hidden = self.operation.add(self.W_x(spk_input), self.operation.add(self.W_h(spk_hidden), self.W_m(
-            spk_memory)))  # [batch_size, hidden_size]
+        spk_hidden = self.W_x(spk_input) + self.W_h(spk_hidden) + self.W_m(
+            spk_memory)  # [batch_size, hidden_size]
 
         spk_hidden = self.f(spk_hidden)
 
