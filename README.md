@@ -109,7 +109,7 @@ and spikes when \( $U_t > \Theta$ \).
 | Effective MACs | 0 | 0 |
 | Effective ACs | 2.04×10⁶ | 0.90×10⁶ |
 | Dense operations | 1.27×10⁸ | 3.15×10⁷ |
-| Footprint | 1.96 MB | =.48 MB |
+| Footprint | 1.96 MB | 0.48 MB |
 
 ---
 
