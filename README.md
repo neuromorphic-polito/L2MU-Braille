@@ -118,7 +118,7 @@ and spikes when \( $U_t > \Theta$ \).
 Python version = 3.11.10
 
 ```bash
-git clone git@github.com:neuromorphic-polito/nice_2025.git
+git clone git@github.com:neuromorphic-polito/L2MU-Braille.git
 pip install -r requirements.txt
 ```
 
