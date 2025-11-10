@@ -12,7 +12,7 @@ This repository hosts the implementation and experiments from the paper *"A LIF-
 The **L²MU** is a fully spiking reinterpretation of the **Legendre Memory Unit (LMU)**, where each core block—encoder, hidden state, and memory—is replaced by a **population of Leaky Integrate-and-Fire (LIF) neurons**.  
 All communications between these populations occur via **synaptic currents and spike trains**, leading to a neuromorphic **state-space model** capable of long-range temporal processing and energy-efficient computation.
 
-Benchmarking on the **event-based Braille letter recognition task** shows that the L²MU **outperforms recurrent SNNs**, achieving **85.6%** accuracy on the complete 27-class dataset and **97.1%** on a 7-class subset.
+Benchmarking on the **event-based Braille letter recognition task** shows that the L²MU **outperforms previous state-of-the-art recurrent SNNs**, achieving **85.6%** accuracy on the complete 27-class dataset and **97.1%** on a 7-class subset.
 
 ---
 
@@ -29,6 +29,7 @@ The L²MU redesigns the original LMU’s mathematical formulation into a spike-d
 | Encoder        | LIF population `u` | Spike-based synaptic currents |
 | Memory         | LIF population `m` | Spike-based temporal integration |
 | Hidden state   | LIF population `h` | Recurrent spike-driven computation |
+| Output         | LIF population `out` | Spike-based output |
 
 Each block emits spikes according to its membrane potential \( $U_t$ \) governed by:
 \[
@@ -93,8 +94,13 @@ and spikes when \( $U_t > \Theta$ \).
 
 | Dataset | Accuracy (%) | Previous SNN (%) | Improvement |
 |----------|---------------|------------------|--------------|
-| Braille (27 classes) | **85.55** | 81.8 | +3.75 |
-| Braille (7 classes) | **97.14** | 95.0 | +2.14 |
+| Braille (27 classes) | **$85.55$** | $81.8^1$ | $+3.75$ |
+| Braille (7 classes) | **$97.14$** | $95.0^2$ | $+2.14$ |
+
+1: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.951164/full
+
+2: https://www.nature.com/articles/s41467-024-52259-9
+
 
 ---
 
@@ -134,7 +140,7 @@ Dependencies:
 
 ## Usage
 
-### Hyper Parameter Optimization 
+### Hyperparameter Optimization 
 
 ```bash
 cd nni_suite
